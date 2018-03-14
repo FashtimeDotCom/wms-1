@@ -1,3 +1,10 @@
-from django.shortcuts import render
+from django.views.generic.list import ListView
+
+from .models import Warehouse
+
+class WarehouseList(ListView):
+    model = Warehouse
+    template_name = "warehouse/warehouses.html"
+
 
 # Create your views here.
