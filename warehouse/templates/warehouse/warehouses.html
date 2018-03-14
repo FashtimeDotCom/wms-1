@@ -1,5 +1,18 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
+    <table class="type-active">
+        <thead class="thead-dark">
+            <th>Название</th>
+        </thead>
+    <tbody>
+
+        {% for warehouse in object_list %}
+            <tr><td>{{ warehouse }}</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+
 
 {% endblock %}
