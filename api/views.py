@@ -1,6 +1,14 @@
 from .permisions import PermViewSets
 
-from .serializers import WarehouseSerializer, Warehouse,AccomodationArea, AccomodationAreaSerializer,SelectionAreaSerializer,SelectionArea
+from .serializers import WarehouseSerializer, \
+    Warehouse,AccomodationArea,\
+    AccomodationAreaSerializer,\
+    SelectionAreaSerializer,\
+    SelectionArea,\
+    WorkZone,\
+    WorkZoneSerializer,\
+    Cell,\
+    CellSerializer
 
 
 class WarehouseViewSet(PermViewSets):
@@ -15,3 +23,12 @@ class AccomodationAreaViewSet(PermViewSets):
 class SelectionAreaViewSet(PermViewSets):
     queryset = SelectionArea.objects.all()
     serializer_class = SelectionAreaSerializer
+
+class WorkZoneViewSet(PermViewSets):
+    queryset = WorkZone.objects.all()
+    serializer_class = WorkZoneSerializer
+
+
+class CellViewSet(PermViewSets):
+    queryset = Cell.objects.all()
+    serializer_class = CellSerializer
