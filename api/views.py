@@ -1,33 +1,17 @@
-from rest_framework import  permissions
-from .logger.viewsets import LoggerViewSet
-
+from .permisions import PermViewSets
 
 from .serializers import WarehouseSerializer, Warehouse,AccomodationArea, AccomodationAreaSerializer,SelectionAreaSerializer,SelectionArea
 
 
-class WarehouseViewSet(LoggerViewSet):
+class WarehouseViewSet(PermViewSets):
     queryset = Warehouse.objects.all()
     serializer_class = WarehouseSerializer
-    permission_classes = (
-        permissions.IsAuthenticated,
-        permissions.DjangoObjectPermissions,
-        permissions.DjangoModelPermissions
-    )
 
-class AccomodationAreaViewSet(LoggerViewSet):
+class AccomodationAreaViewSet(PermViewSets):
     queryset = AccomodationArea.objects.all()
     serializer_class = AccomodationAreaSerializer
-    permission_classes = (
-                            permissions.IsAuthenticated,
-                            permissions.DjangoObjectPermissions,
-                            permissions.DjangoModelPermissions
-    )
 
-class SelectionAreaViewSet(LoggerViewSet):
+
+class SelectionAreaViewSet(PermViewSets):
     queryset = SelectionArea.objects.all()
     serializer_class = SelectionAreaSerializer
-    permission_classes = (
-                            permissions.IsAuthenticated,
-                            permissions.DjangoObjectPermissions,
-                            permissions.DjangoModelPermissions
-    )
