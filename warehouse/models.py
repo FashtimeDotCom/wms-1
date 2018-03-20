@@ -1,4 +1,5 @@
 from django.db import models
+from base.models import AbstraktOwner
 
 
 class Warehouse(models.Model):
@@ -8,6 +9,10 @@ class Warehouse(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        permissions =(
+            ("view_warehouse", "Для вас не доступен склад"),
+        )
 
 class AccomodationArea(models.Model):
     name = models.CharField(max_length=100)
@@ -38,8 +43,9 @@ class Cell(models.Model):
     work_zone = models.ForeignKey(WorkZone,null=True,on_delete=models.CASCADE)
 
     def __str__(self):
-        return '%s%s%s%s%s' % (self.rack,
+        return '%s%s%s%s%s' % (                     self.rack,
                                                     self.warehouse.address_code_separator,
                                                     self.tier,
                                                     self.warehouse.address_code_separator,
-                                                    self.position)
+                                                    self.position
+                                    )

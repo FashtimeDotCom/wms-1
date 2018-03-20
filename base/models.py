@@ -1,8 +1,7 @@
 from django.db import models
-
+from wms.users.models import User
 # Create your models here.
-class AbstraktDateTimeModel(models.Model):
-    created = models.DateTimeField(auto_created=True)
-    edited = models.DateTimeField(auto_now_add=True)
+class AbstraktOwner(models.Model):
+    owner = models.ForeignKey(User,models.CASCADE,null=True)
     class Meta:
         abstract = True

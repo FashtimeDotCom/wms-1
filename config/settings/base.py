@@ -82,7 +82,9 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'wms.users.apps.UsersConfig',
     'base',
-    'warehouse'
+    'warehouse',
+    'rest_framework',
+    'api',
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -250,3 +252,10 @@ SOCIALACCOUNT_ADAPTER = 'wms.users.adapters.SocialAccountAdapter'
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    )
+}
