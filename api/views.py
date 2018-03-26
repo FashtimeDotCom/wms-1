@@ -1,4 +1,5 @@
 from .permisions import PermViewSets
+from .logger.viewsets import LoggerViewSet
 
 from .serializers import WarehouseSerializer, \
     Warehouse,AccomodationArea,\
@@ -11,7 +12,7 @@ from .serializers import WarehouseSerializer, \
     CellSerializer
 
 
-class WarehouseViewSet(PermViewSets):
+class WarehouseViewSet(LoggerViewSet):
     queryset = Warehouse.objects.all()
     serializer_class = WarehouseSerializer
 

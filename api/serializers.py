@@ -23,6 +23,10 @@ class WorkZoneSerializer(LoggerSerializer):
         fields = ('id','name','blocked',)
 
 class CellSerializer(LoggerSerializer):
+   # warehouse = WarehouseSerializer()
+   # work_zone = WorkZoneSerializer()
+   # selection_area = SelectionAreaSerializer()
+   # accomodation_area = AccomodationAreaSerializer()
     class Meta:
         model = Cell
-        fields = ('id','warehouse','accomodation_area','selection_area','rack','tier','position' ,'work_zone','blocked',)
+        fields = '__all__'
