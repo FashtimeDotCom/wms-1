@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {formControlBinding} from "@angular/forms/src/directives/ng_model";
 
 @Component({
   selector: 'app-sign-in',
@@ -7,15 +8,22 @@ import {FormControl, FormGroup} from "@angular/forms";
   styleUrls: ['./sign-in.component.css']
 })
 export class SignInComponent implements OnInit {
-  authForm = new FormGroup ({
-    username: new FormControl(),
-    password: new FormControl(),
+  form: FormGroup;
 
-  })
+  formSubmit(){
+    console.log(this.form.value)
+  }
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.form = this.formBuilder.group(
+      {
+        'username': ['', Validators.required ],
+        'password': ['', Validators.required ],
+      }
+
+    )
   }
 
 }
