@@ -96,6 +96,7 @@ LOCAL_APPS = [
     'base',
     'warehouse',
     'rest_framework',
+    'rest_framework.authtoken',
     'api',
     # Your stuff: custom apps go here
 ]
@@ -267,8 +268,10 @@ SOCIALACCOUNT_ADAPTER = 'wms.users.adapters.SocialAccountAdapter'
 # ------------------------------------------------------------------------------
 
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     )
 }
