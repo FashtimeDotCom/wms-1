@@ -2,3 +2,7 @@ mat-toolbar {
   display: flex;
   flex-grow: inherit;
 }
+.clear{
+  display: flex;
+  flex-grow: 1;
+}

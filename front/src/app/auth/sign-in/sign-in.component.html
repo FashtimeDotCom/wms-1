@@ -5,6 +5,9 @@
     <h2 class="example-container" style="color: #7a43b6">
         Авторизация
     </h2>
+  <mat-error *ngIf="form.get('non_field_errors').errors">
+        {{ form.get('non_field_errors').errors }}
+      </mat-error>
 
 
 </mat-card-header>
@@ -14,10 +17,16 @@
   <form [formGroup]="form" (submit)="formSubmit()" class="login-form">
     <mat-form-field class="full-width">
       <input matInput placeholder="Имя пользователя:" formControlName="username">
+      <mat-error *ngIf="form.get('username').errors">
+        {{ form.get('username').errors }}
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="full-width">
-      <input matInput placeholder="Пароль:" formControlName="password">
+      <input type="password" matInput placeholder="Пароль:" formControlName="password">
+      <mat-error *ngIf="form.get('password').errors">
+        {{ form.get('password').errors }}
+      </mat-error>
     </mat-form-field>
     <br />
     <button class="example-full-width" mat-raised-button color="accent" >Войти</button>

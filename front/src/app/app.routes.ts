@@ -7,7 +7,10 @@ export const signIn = 'app/auth/auth.module#AuthModule';
 
 export const appROUTER: Routes = [
   {
-    path: '' , component: HomepageComponent
+    path: '',   redirectTo: '/sign-in', pathMatch: 'full'
+  },
+  {
+    path: 'home', component:HomepageComponent
   },
   {
     path: 'sign-in', loadChildren: signIn

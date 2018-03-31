@@ -12,6 +12,12 @@ import { HomepageComponent } from './home/homepage/homepage.component';
 
 import {appROUTER} from "./app.routes";
 import {RouterModule} from "@angular/router";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {ApiService} from "./api.service";
+
+import {TokenStorageService} from "./token-storage.service";
+import {AuthInterceptor} from "./auth/auth.interceptor";
+import { WarehouseComponent } from './warehouse/warehouse.component';
 
 
 
@@ -21,26 +27,34 @@ import {RouterModule} from "@angular/router";
   declarations: [
     AppComponent,
 
-    HomepageComponent
+    HomepageComponent,
+
+    WarehouseComponent
   ],
+
   imports: [
     BrowserModule,
-
+    BrowserAnimationsModule,
+    HttpClientModule,
     RouterModule.forRoot(appROUTER),
 
 
-    BrowserAnimationsModule,
-    MatToolbarModule,
 
+    MatToolbarModule,
     MatButtonModule,
     MatIconModule,
-
-
     MatCardModule,
 
 
   ],
-  providers: [],
+  providers: [ApiService,
+    TokenStorageService,
+  {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
