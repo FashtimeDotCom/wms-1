@@ -1,24 +1,30 @@
+<mat-card class="mat-card">
+  <div class="example-container">
+<mat-card-header class="form-header">
 
-<mat-card class="center">
+    <h2 class="example-container" style="color: #7a43b6">
+        Авторизация
+    </h2>
 
+
+</mat-card-header>
 
 <mat-card-content>
-<div class="example-container">
-  <form [formGroup]="form" (submit)="formSubmit()">
-    <mat-form-field>
+
+  <form [formGroup]="form" (submit)="formSubmit()" class="login-form">
+    <mat-form-field class="full-width">
       <input matInput placeholder="Имя пользователя:" formControlName="username">
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field class="full-width">
       <input matInput placeholder="Пароль:" formControlName="password">
     </mat-form-field>
     <br />
-    <button mat-button color="primary">Войти</button>
+    <button class="example-full-width" mat-raised-button color="accent" >Войти</button>
   </form>
-</div>
 
 </mat-card-content>
 
-
+</div>
 
 </mat-card>

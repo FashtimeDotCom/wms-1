@@ -4,31 +4,40 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {MatButtonModule, MatCardModule, MatIconModule, MatInputModule, MatToolbarModule} from "@angular/material";
-import { SignInComponent } from './auth/sign-in/sign-in.component';
-import {RouterModule, Routes} from "@angular/router";
+import {MatButtonModule, MatCardModule, MatIconModule, MatToolbarModule} from "@angular/material";
+
+
 import { HomepageComponent } from './home/homepage/homepage.component';
-import { appRoutes} from "./routes";
-import {ReactiveFormsModule} from '@angular/forms';
+
+
+import {appROUTER} from "./app.routes";
+import {RouterModule} from "@angular/router";
+
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent,
+
     HomepageComponent
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
+
+    RouterModule.forRoot(appROUTER),
+
+
     BrowserAnimationsModule,
     MatToolbarModule,
-    RouterModule.forRoot(appRoutes),
+
     MatButtonModule,
     MatIconModule,
 
-    MatInputModule,
+
     MatCardModule,
+
 
   ],
   providers: [],
